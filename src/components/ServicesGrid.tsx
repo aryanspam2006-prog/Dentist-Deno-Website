@@ -20,7 +20,7 @@ const services = [
     desc: "Professional in-office or at-home whitening to brighten your smile by up to 8 shades."
   },
   {
-    image: "https://images.unsplash.com/photo-1579724124316-c70e932b7ba4?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
     price: "FROM $1,800",
     title: "Dental Implants",
     desc: "Permanent, natural-looking replacements for missing teeth — surgically placed and built to last a lifetime."
@@ -32,7 +32,7 @@ const services = [
     desc: "Custom-crafted porcelain shells and crowns to restore shape, color, and strength to damaged teeth."
   },
   {
-    image: "https://images.unsplash.com/photo-1606214174585-f28f6ce38185?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800",
     price: "SAME DAY",
     title: "Emergency Care",
     desc: "Same-day emergency appointments for toothaches, broken teeth, lost fillings, and dental pain. Call anytime."
