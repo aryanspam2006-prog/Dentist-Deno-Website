@@ -20,7 +20,7 @@ export function PhotoCTA() {
           </p>
         </div>
         
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
           <button 
             onClick={() => (window as any).Calendly?.initPopupWidget({ url: 'https://calendly.com/aryanspam2006' })}
             className="pill-button-primary h-12 px-9">

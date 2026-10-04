@@ -79,7 +79,7 @@ function DecimalCounter({ end, duration = 1400 }: { end: number, duration?: numb
 
 export function AboutStats() {
   return (
-    <section id="about-us" className="bg-white py-20 px-6 md:px-[60px]">
+    <section id="about-us" className="bg-white py-12 md:py-20 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto">
         <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-12">
           ABOUT US

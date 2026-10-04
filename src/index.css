@@ -44,3 +44,13 @@
     @apply inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] font-semibold text-[0.82rem] transition-colors border border-white/35 text-white hover:bg-white/10 font-normal;
   }
 }
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

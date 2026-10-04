@@ -3,7 +3,7 @@ import { Phone } from 'lucide-react';
 
 export function FinalCTA() {
   return (
-    <section className="bg-primary py-20 px-6 md:px-[60px]">
+    <section className="bg-primary py-16 md:py-20 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -19,13 +19,13 @@ export function FinalCTA() {
             Request a consultation in under 2 minutes. Same-day appointments available. Transparent pricing, no surprises.
           </p>
           
-          <div className="flex gap-4 justify-center flex-wrap mt-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <button 
               onClick={() => (window as any).Calendly?.initPopupWidget({ url: 'https://calendly.com/aryanspam2006' })}
-              className="bg-white text-primary inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] h-12 px-10 font-semibold text-[0.82rem] hover:bg-white/90 transition-colors">
+              className="w-full sm:w-auto bg-white text-primary inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] h-12 px-10 font-semibold text-[0.82rem] hover:bg-white/90 transition-colors">
               Book Consultation
             </button>
-            <a href="tel:8005592648" className="border border-white/35 text-white inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] h-12 px-8 font-normal text-[0.82rem] hover:bg-white/10 transition-colors">
+            <a href="tel:8005592648" className="w-full sm:w-auto border border-white/35 text-white inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] h-12 px-8 font-normal text-[0.82rem] hover:bg-white/10 transition-colors">
               <Phone size={16} />
               (800) 559-2648
             </a>

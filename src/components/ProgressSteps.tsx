@@ -13,7 +13,7 @@ export function ProgressSteps() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="bg-white border-b border-border px-6 md:px-[60px] overflow-x-auto no-scrollbar relative z-10 shadow-sm">
+    <section className="bg-white border-b border-border px-6 md:px-[60px] overflow-x-auto hide-scrollbar relative z-10 shadow-sm">
       <div className="max-w-[1200px] mx-auto flex md:grid md:grid-cols-4 min-w-[800px] md:min-w-0">
         {steps.map((step, index) => {
           const isActive = index === activeStep;

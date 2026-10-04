@@ -41,7 +41,7 @@ const services = [
 
 export function ServicesGrid() {
   return (
-    <section id="services" className="bg-surface-light py-24 px-6 md:px-[60px]">
+    <section id="services" className="bg-surface-light py-16 md:py-24 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto">
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">

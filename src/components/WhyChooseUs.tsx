@@ -12,7 +12,7 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section className="bg-white py-24 px-6 md:px-[60px]">
+    <section className="bg-white py-16 md:py-24 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         
         {/* Left text */}
@@ -54,7 +54,7 @@ export function WhyChooseUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="rounded-3xl overflow-hidden h-[400px] lg:h-[500px]"
+          className="rounded-3xl overflow-hidden h-[300px] md:h-[400px] lg:h-[500px]"
         >
           <img 
             src="https://images.unsplash.com/photo-1638202361665-27a3c7c25121?auto=format&fit=crop&q=80&w=1200" 
