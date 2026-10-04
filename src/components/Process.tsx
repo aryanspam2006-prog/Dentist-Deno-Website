@@ -32,14 +32,20 @@ export function Process() {
     <section className="bg-surface-dark py-16 md:py-24 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto">
         
-        <div className="max-w-[560px] mx-auto text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-[560px] mx-auto text-center mb-16"
+        >
           <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase">
             HOW IT WORKS
           </h3>
           <h2 className="font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] text-white mt-3">
             Your journey to a healthier smile.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((step, index) => (

@@ -43,24 +43,24 @@ export function WhyChooseUs() {
             ))}
           </div>
 
-          <button className="pill-button-secondary h-11 px-8">
-            Meet Our Team &rarr;
+          <button className="pill-button-secondary h-11 px-8 group">
+            Meet Our Team <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">&rarr;</span>
           </button>
         </motion.div>
 
-        {/* Right photo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="rounded-3xl overflow-hidden h-[300px] md:h-[400px] lg:h-[500px]"
+          className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] lg:h-[500px] group cursor-default"
         >
           <img 
             src="https://images.unsplash.com/photo-1638202361665-27a3c7c25121?auto=format&fit=crop&q=80&w=1200" 
             alt="Dental team" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-primary/0 md:group-hover:bg-primary/5 transition-colors duration-700 pointer-events-none" />
         </motion.div>
 
       </div>

@@ -89,8 +89,8 @@ export function Hero() {
         >
           <button 
             onClick={() => (window as any).Calendly?.initPopupWidget({ url: 'https://calendly.com/aryanspam2006' })}
-            className="w-full sm:w-auto inline-flex items-center justify-center shrink-0 whitespace-nowrap rounded-full font-semibold text-[0.85rem] transition-all duration-300 bg-primary text-white hover:bg-[#0aa6a6] px-9 py-3.5 md:py-3.5 shadow-[0_4px_14px_rgba(11,184,184,0.3)] hover:shadow-[0_6px_20px_rgba(11,184,184,0.4)] hover:-translate-y-[1px]">
-            Book Appointment &rarr;
+            className="w-full sm:w-auto inline-flex items-center justify-center shrink-0 whitespace-nowrap rounded-full font-semibold text-[0.85rem] transition-all duration-300 bg-primary text-white hover:bg-[#0aa6a6] px-9 py-3.5 md:py-3.5 shadow-[0_4px_14px_rgba(11,184,184,0.3)] hover:shadow-[0_6px_20px_rgba(11,184,184,0.4)] hover:-translate-y-[1px] active:scale-[0.98] group">
+            Book Appointment <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">&rarr;</span>
           </button>
           <a href="tel:8005592648" className="inline-flex items-center justify-center gap-2.5 font-sans font-normal text-[0.85rem] text-white/65 hover:text-white transition-colors group">
             <span className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center group-hover:bg-white/10 transition-colors shrink-0">

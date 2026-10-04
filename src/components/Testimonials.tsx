@@ -23,7 +23,13 @@ export function Testimonials() {
     <section id="testimonials" className="bg-white py-16 md:py-24 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto">
         
-        <div className="text-center mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
           <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase">
             PATIENT REVIEWS
           </h3>
@@ -34,7 +40,7 @@ export function Testimonials() {
             <span className="text-warning text-sm tracking-[2px]">★★★★★</span>
             4.9 average from 1,200+ verified reviews
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reviews.map((review, index) => (

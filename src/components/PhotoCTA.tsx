@@ -2,13 +2,13 @@ import { Phone } from 'lucide-react';
 
 export function PhotoCTA() {
   return (
-    <section className="relative h-auto md:h-[300px] py-16 md:py-0 overflow-hidden flex items-center">
+    <section className="relative h-auto md:h-[300px] py-16 md:py-0 overflow-hidden flex items-center group cursor-default">
       <img 
         src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=2000" 
         alt="Happy dental patient" 
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 transition-transform duration-1000 md:group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(6,12,20,0.90)] via-[rgba(6,12,20,0.65)] to-[rgba(6,12,20,0.15)] z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(6,12,20,0.90)] via-[rgba(6,12,20,0.65)] to-[rgba(6,12,20,0.15)] z-[1] transition-opacity duration-1000 md:group-hover:opacity-90" />
       
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-[60px] flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
