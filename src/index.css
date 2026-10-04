@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(30 20% 98%); /* Warm off-white #FAFAFA / #F9F8F6 */
+  --color-foreground: hsl(215 35% 15%); /* Deep charcoal / dark navy */
+  --color-surface-dark: hsl(215 35% 15%); /* Consistent deep navy */
+  --color-surface-light: hsl(30 20% 95%); /* Slightly darker warm off-white */
+  --color-primary: hsl(180 60% 40%); /* Refined, slightly muted teal */
+  --color-primary-light: hsl(180 50% 92%); /* Pale teal tint */
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-muted-foreground: hsl(215 15% 45%); /* Medium warm gray */
+  --color-border: hsl(215 15% 88%); /* Subtle gray border */
+  --color-success: hsl(142 71% 38%);
+  --color-warning: hsl(38 92% 50%);
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Base custom styles to simplify components */
+@layer components {
+  .section-container {
+    @apply w-full;
+  }
+  .section-inner {
+    @apply max-w-[1200px] mx-auto px-6 md:px-[60px];
+  }
+  .pill-button {
+    @apply inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] font-semibold text-[0.82rem] transition-colors;
+  }
+  .pill-button-primary {
+    @apply inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] font-semibold text-[0.82rem] transition-colors bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+  .pill-button-secondary {
+    @apply inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] font-semibold text-[0.82rem] transition-colors bg-surface-dark text-white hover:bg-surface-dark/90;
+  }
+  .pill-button-ghost {
+    @apply inline-flex items-center justify-center gap-2 shrink-0 whitespace-nowrap rounded-[100px] font-semibold text-[0.82rem] transition-colors border border-white/35 text-white hover:bg-white/10 font-normal;
+  }
+}
