@@ -1,4 +1,7 @@
+import { useRef } from 'react';
 import { motion } from 'motion/react';
+import { useSnapIndex } from '../lib/useSnapIndex';
+import { CarouselDots } from './CarouselDots';
 
 const services = [
   {
@@ -40,11 +43,14 @@ const services = [
 ];
 
 export function ServicesGrid() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const activeIndex = useSnapIndex(trackRef);
+
   return (
     <section id="services" className="bg-surface-light py-16 md:py-24 px-6 md:px-[60px]">
       <div className="max-w-[1200px] mx-auto">
         
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-14 gap-5 md:gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +60,7 @@ export function ServicesGrid() {
             <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-3">
               FEATURE TREATMENT
             </h3>
-            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] leading-[1.2] whitespace-pre-line text-surface-dark">
+            <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] leading-[1.2] whitespace-pre-line text-surface-dark">
               {`Advanced Dental Care\nfor a Healthier Smile`}
             </h2>
           </motion.div>
@@ -69,16 +75,27 @@ export function ServicesGrid() {
           </motion.button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Phones: swipeable row with a peek of the next card. Tablet/desktop: grid. */}
+        <div
+          ref={trackRef}
+          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:scroll-px-6 max-md:-mx-6 max-md:px-6 max-md:pb-2 hide-scrollbar"
+        >
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group bg-white rounded-2xl overflow-hidden border border-border cursor-pointer transition-all duration-500 ease-out md:hover:-translate-y-[4px] md:hover:scale-[1.01] md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
+              transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
+                e.currentTarget.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
+              }}
+              className="group relative max-md:w-[82%] max-md:shrink-0 max-md:snap-start bg-white rounded-2xl overflow-hidden border border-border cursor-pointer transition-all duration-500 ease-out md:hover:-translate-y-[4px] md:hover:scale-[1.01] md:hover:border-primary/30 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]"
             >
+              {/* Cursor spotlight */}
+              <div className="hidden md:block pointer-events-none absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(420px_circle_at_var(--spot-x)_var(--spot-y),rgba(41,163,163,0.10),transparent_45%)]" />
               <div className="h-[170px] overflow-hidden relative">
                 <div className="absolute top-4 right-4 z-10 w-[34px] h-[34px] bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center font-sans font-bold text-[0.7rem] text-surface-dark shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-110 group-hover:text-primary">
                   {String(index + 1).padStart(2, '0')}
@@ -89,8 +106,8 @@ export function ServicesGrid() {
                   className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"
                 />
               </div>
-              <div className="p-6 md:p-7">
-                <span className="inline-flex bg-primary-light text-primary text-[0.65rem] font-semibold tracking-[0.08em] px-3 py-1 rounded-full mb-4">
+              <div className="p-5 md:p-7">
+                <span className="inline-flex bg-primary-light text-primary text-[0.65rem] font-semibold tracking-[0.08em] px-3 py-1 rounded-full mb-3 md:mb-4">
                   {service.price}
                 </span>
                 <h4 className="font-sans font-bold text-[1.05rem] text-surface-dark mb-2.5">
@@ -106,6 +123,7 @@ export function ServicesGrid() {
             </motion.div>
           ))}
         </div>
+        <CarouselDots count={services.length} active={activeIndex} />
 
       </div>
     </section>

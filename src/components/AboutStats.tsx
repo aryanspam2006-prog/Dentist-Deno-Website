@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
+import { ArrowDownRight } from 'lucide-react';
 
 function AnimatedCounter({ end, duration = 1400 }: { end: number, duration?: number }) {
   const [count, setCount] = useState(0);
@@ -77,6 +78,28 @@ function DecimalCounter({ end, duration = 1400 }: { end: number, duration?: numb
   return <span ref={ref}>{count.toFixed(1)}</span>;
 }
 
+function RotatingBadge() {
+  return (
+    <a
+      href="#services"
+      aria-label="Explore our services"
+      className="hidden lg:flex relative w-[150px] h-[150px] shrink-0 mb-16 items-center justify-center group"
+    >
+      <svg viewBox="0 0 150 150" className="absolute inset-0 w-full h-full animate-[spin_22s_linear_infinite] motion-reduce:animate-none">
+        <defs>
+          <path id="badge-circle" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0" />
+        </defs>
+        <text className="fill-surface-dark font-sans font-semibold uppercase" style={{ fontSize: '10px', letterSpacing: '0.24em' }}>
+          <textPath href="#badge-circle" textLength="362" lengthAdjust="spacing">Gentle care · Healthy smiles · Dentora ·</textPath>
+        </text>
+      </svg>
+      <span className="w-[60px] h-[60px] rounded-full bg-primary text-white flex items-center justify-center shadow-[0_8px_24px_rgba(41,163,163,0.35)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-45">
+        <ArrowDownRight className="w-6 h-6" />
+      </span>
+    </a>
+  );
+}
+
 export function AboutStats() {
   return (
     <section id="about-us" className="bg-white py-12 md:py-20 px-6 md:px-[60px]">
@@ -86,14 +109,19 @@ export function AboutStats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
+          className="lg:flex lg:items-end lg:justify-between lg:gap-12"
         >
-          <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-12">
-            ABOUT US
-          </h3>
-          
-          <p className="max-w-[760px] mb-14 font-sans font-bold text-[clamp(1.6rem,3vw,2.8rem)] leading-[1.3] tracking-[-0.02em] text-surface-dark">
-            We deliver <span className="text-primary">personalized dental treatments</span> with modern technology and gentle care ensuring healthy confident smiles for every patient.
-          </p>
+          <div>
+            <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-6 md:mb-12">
+              ABOUT US
+            </h3>
+
+            <p className="max-w-[760px] mb-10 md:mb-14 font-sans font-bold text-[clamp(1.6rem,3vw,2.8rem)] leading-[1.3] tracking-[-0.02em] text-surface-dark">
+              We deliver <span className="text-primary">personalized dental treatments</span> with modern technology and gentle care ensuring healthy confident smiles for every patient.
+            </p>
+          </div>
+
+          <RotatingBadge />
         </motion.div>
 
         <motion.div 
@@ -101,37 +129,37 @@ export function AboutStats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col md:flex-row md:items-center gap-10 py-8 border-t border-b border-border mb-10"
+          className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 border-t border-b border-border mb-10"
         >
-          <p className="font-sans font-light text-[0.68rem] text-muted-foreground max-w-[130px] leading-[1.6]">
+          <p className="font-sans font-light text-[0.68rem] text-muted-foreground md:max-w-[130px] leading-[1.6]">
             Thousands trust us for smiles!
           </p>
 
-          <div className="flex flex-wrap sm:flex-nowrap gap-8 md:gap-12">
+          <div className="grid grid-cols-3 md:flex md:gap-12 [&>div+div]:border-l [&>div+div]:border-border [&>div+div]:pl-4 md:[&>div+div]:pl-12">
             <div>
-              <div className="font-sans font-extrabold text-[2.8rem] tracking-[-0.03em] leading-[1]">
+              <div className="font-sans font-extrabold text-[2rem] md:text-[2.8rem] tracking-[-0.03em] leading-[1]">
                 <AnimatedCounter end={98} />%
               </div>
-              <div className="font-sans font-normal text-[0.7rem] text-muted-foreground mt-1">Satisfaction Rate</div>
+              <div className="font-sans font-normal text-[0.68rem] md:text-[0.7rem] text-muted-foreground mt-1.5 md:mt-1">Satisfaction Rate</div>
             </div>
-            
+
             <div>
-              <div className="font-sans font-extrabold text-[2.8rem] tracking-[-0.03em] leading-[1]">
+              <div className="font-sans font-extrabold text-[2rem] md:text-[2.8rem] tracking-[-0.03em] leading-[1]">
                 <AnimatedCounter end={2} />k+
               </div>
-              <div className="font-sans font-normal text-[0.7rem] text-muted-foreground mt-1">Smiles Transformed</div>
+              <div className="font-sans font-normal text-[0.68rem] md:text-[0.7rem] text-muted-foreground mt-1.5 md:mt-1">Smiles Transformed</div>
             </div>
-            
+
             <div>
-              <div className="font-sans font-extrabold text-[2.8rem] tracking-[-0.03em] leading-[1] flex items-center">
+              <div className="font-sans font-extrabold text-[2rem] md:text-[2.8rem] tracking-[-0.03em] leading-[1] flex items-center">
                 <DecimalCounter end={4.9} />
-                <span className="text-primary text-3xl ml-1">★</span>
+                <span className="text-primary text-xl md:text-3xl ml-0.5 md:ml-1">★</span>
               </div>
-              <div className="font-sans font-normal text-[0.7rem] text-muted-foreground mt-1">Customer Rating</div>
+              <div className="font-sans font-normal text-[0.68rem] md:text-[0.7rem] text-muted-foreground mt-1.5 md:mt-1">Customer Rating</div>
             </div>
           </div>
 
-          <div className="relative md:ml-auto w-full md:w-[210px] h-[160px] rounded-2xl overflow-hidden mt-6 md:mt-0 shrink-0 group cursor-default">
+          <div className="relative md:ml-auto w-full md:w-[210px] h-[190px] md:h-[160px] rounded-2xl overflow-hidden shrink-0 group cursor-default">
             <img 
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600" 
               alt="Modern dental clinic"

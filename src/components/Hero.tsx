@@ -1,6 +1,7 @@
-import { motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
+import { openBooking } from '../lib/booking';
 
-const fadeUp: any = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 22, filter: 'blur(6px)' },
   visible: (i: number) => ({
     opacity: 1, 
@@ -10,7 +11,7 @@ const fadeUp: any = {
   })
 };
 
-const wordStagger: any = {
+const wordStagger: Variants = {
   hidden: { opacity: 0, y: 22, filter: 'blur(6px)' },
   visible: (i: number) => ({
     opacity: 1, 
@@ -20,11 +21,17 @@ const wordStagger: any = {
   })
 };
 
+const reviewerAvatars = [
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=80",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=80"
+];
+
 export function Hero() {
   const h1Words = ['Experience', 'Comfortable', 'Dental', 'Care.'];
 
   return (
-    <section className="min-h-[95vh] relative overflow-hidden flex items-end pt-32 pb-12 md:pb-20">
+    <section className="min-h-[92svh] md:min-h-[95vh] relative overflow-hidden flex items-end pt-28 md:pt-32 pb-8 md:pb-20">
       {/* Background photo */}
       <img 
         src="/pexels-olly-3945607.jpg" 
@@ -39,10 +46,13 @@ export function Hero() {
         style={{
           background: `
             linear-gradient(to right, rgba(8, 12, 18, 0.88) 0%, rgba(8, 12, 18, 0.65) 45%, rgba(8, 12, 18, 0.15) 75%, rgba(8, 12, 18, 0) 100%),
-            linear-gradient(to top, hsl(var(--color-background)) 0%, transparent 15%)
+            linear-gradient(to top, var(--color-background) 0%, transparent 15%)
           `
         }}
       />
+
+      {/* Phones: text spans the full width, so darken from the bottom up for legibility */}
+      <div className="md:hidden absolute inset-0 z-0 bg-gradient-to-t from-[rgba(8,12,18,0.92)] via-[rgba(8,12,18,0.5)] via-55% to-[rgba(8,12,18,0.1)]" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-[60px] flex flex-col justify-end h-full">
@@ -88,7 +98,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start sm:items-center mb-10 md:mb-16"
         >
           <button 
-            onClick={() => (window as any).Calendly?.initPopupWidget({ url: 'https://calendly.com/aryanspam2006' })}
+            onClick={openBooking}
             className="w-full sm:w-auto inline-flex items-center justify-center shrink-0 whitespace-nowrap rounded-full font-semibold text-[0.85rem] transition-all duration-300 bg-primary text-white hover:bg-[#0aa6a6] px-9 py-3.5 md:py-3.5 shadow-[0_4px_14px_rgba(11,184,184,0.3)] hover:shadow-[0_6px_20px_rgba(11,184,184,0.4)] hover:-translate-y-[1px] active:scale-[0.98] group">
             Book Appointment <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">&rarr;</span>
           </button>
@@ -101,8 +111,8 @@ export function Hero() {
         </motion.div>
 
         {/* Service tag pills - Clean, elegant, horizontal scroll on mobile */}
-        <div className="border-t border-white/10 w-full">
-          <motion.div 
+        <div className="border-t border-white/10 w-full lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <motion.div
             custom={8} variants={fadeUp} initial="hidden" animate="visible"
             className="flex max-md:flex-nowrap flex-wrap max-md:overflow-x-auto hide-scrollbar gap-2.5 pt-5 md:pt-6 max-md:pb-2 max-md:-mx-6 max-md:px-6"
           >
@@ -114,6 +124,24 @@ export function Hero() {
                 </span>
               </div>
             ))}
+          </motion.div>
+
+          {/* Review chip (large screens) */}
+          <motion.div
+            custom={9} variants={fadeUp} initial="hidden" animate="visible"
+            className="hidden lg:flex items-center gap-3 shrink-0 mt-6 pl-2 pr-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+          >
+            <div className="flex -space-x-2">
+              {reviewerAvatars.map((src) => (
+                <img key={src} src={src} alt="" className="w-8 h-8 rounded-full object-cover border-2 border-white/80" />
+              ))}
+            </div>
+            <div className="leading-tight">
+              <div className="flex items-center gap-1.5 font-sans font-bold text-[0.8rem] text-white">
+                4.9 <span className="text-warning text-[0.7rem] tracking-[1px]">★★★★★</span>
+              </div>
+              <div className="font-sans text-[0.65rem] text-white/65">1,200+ happy patients</div>
+            </div>
           </motion.div>
         </div>
 

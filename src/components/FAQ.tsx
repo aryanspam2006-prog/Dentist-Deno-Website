@@ -42,11 +42,11 @@ export function FAQ() {
       <div className="max-w-[1200px] mx-auto">
         <div className="max-w-3xl mx-auto">
           
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase">
               FAQ
             </h3>
-            <h2 className="font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] mt-3 text-surface-dark">
+            <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] mt-3 text-surface-dark">
               Common questions, clear answers.
             </h2>
           </div>
@@ -60,7 +60,7 @@ export function FAQ() {
                 className="border-b border-border py-5"
               >
                 <Collapsible.Trigger className="flex justify-between items-center w-full text-left gap-4 cursor-pointer outline-none group">
-                  <span className="font-sans font-semibold text-[0.92rem] text-surface-dark transition-colors group-hover:text-primary">
+                  <span className="font-sans font-semibold text-[0.92rem] text-surface-dark transition-colors group-hover:text-primary group-data-[state=open]:text-primary">
                     {faq.q}
                   </span>
                   <ChevronDown 
