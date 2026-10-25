@@ -50,10 +50,11 @@ export function Navbar() {
   return (
     <>
       <nav className={cn(
-        "fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-[60px] flex justify-between items-center transition-all duration-300 border-b border-white/10",
-        isScrolled
-          ? "md:py-3.5 bg-surface-dark shadow-[0_8px_30px_rgba(0,0,0,0.18)]"
-          : "md:py-5 bg-surface-dark shadow-sm"
+        "fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-[60px] flex justify-between items-center transition-all duration-300 border-b",
+        // Transparent over the hero photo at the top; solid once scrolled or when the menu is open
+        isScrolled || isOpen
+          ? "md:py-3.5 bg-surface-dark border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.18)]"
+          : "md:py-6 bg-transparent border-transparent"
       )}>
         {/* Scroll progress */}
         <motion.div

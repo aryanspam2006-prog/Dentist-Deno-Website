@@ -11,9 +11,10 @@ const steps = [
 export function ProgressSteps() {
   const [activeStep, setActiveStep] = useState(0);
 
+  // Phones: full-width strip. Desktop: floating card that overlaps the bottom of the hero.
   return (
-    <section className="group/steps bg-white border-b border-border md:px-[60px] relative z-10 shadow-sm">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4">
+    <section className="group/steps relative z-20 bg-white border-b border-border shadow-sm md:-mt-14 md:px-[60px] md:border-0 md:shadow-none md:bg-[linear-gradient(to_bottom,transparent_50%,#fff_50%)]">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 md:bg-white md:rounded-2xl md:overflow-hidden md:border md:border-border/70 md:shadow-[0_24px_60px_rgba(10,21,32,0.14)]">
         {steps.map((step, index) => {
           const isActive = index === activeStep;
           return (
