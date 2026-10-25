@@ -112,7 +112,7 @@ export function AboutStats() {
           className="lg:flex lg:items-end lg:justify-between lg:gap-12"
         >
           <div>
-            <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-6 md:mb-12">
+            <h3 className="font-sans font-semibold text-[0.68rem] md:text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-6 md:mb-12">
               ABOUT US
             </h3>
 
@@ -160,7 +160,7 @@ export function AboutStats() {
           </div>
 
           <div className="relative md:ml-auto w-full md:w-[210px] h-[190px] md:h-[160px] rounded-2xl overflow-hidden shrink-0 group cursor-default">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600" 
               alt="Modern dental clinic"
               className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"
@@ -176,7 +176,7 @@ export function AboutStats() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex items-center gap-4 mt-2"
         >
-          <img 
+          <img loading="lazy" decoding="async" 
             src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150" 
             alt="Dr. Daniel Carter" 
             className="w-12 h-12 rounded-full object-cover"

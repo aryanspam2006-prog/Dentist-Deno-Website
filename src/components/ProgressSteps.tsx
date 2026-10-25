@@ -29,7 +29,7 @@ export function ProgressSteps() {
             >
               <div className="flex flex-col gap-1.5">
                 <span className={cn(
-                  "font-sans font-semibold text-[0.6rem] tracking-[0.2em] uppercase group-hover:text-primary transition-colors",
+                  "font-sans font-semibold text-[0.65rem] md:text-[0.6rem] tracking-[0.2em] uppercase group-hover:text-primary transition-colors",
                   isActive ? "text-primary/70" : "text-muted-foreground/60"
                 )}>
                   Step 0{index + 1}

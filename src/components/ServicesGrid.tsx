@@ -57,7 +57,7 @@ export function ServicesGrid() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-3">
+            <h3 className="font-sans font-semibold text-[0.68rem] md:text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-3">
               FEATURE TREATMENT
             </h3>
             <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] leading-[1.2] whitespace-pre-line text-surface-dark">
@@ -100,7 +100,7 @@ export function ServicesGrid() {
                 <div className="absolute top-4 right-4 z-10 w-[34px] h-[34px] bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center font-sans font-bold text-[0.7rem] text-surface-dark shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-110 group-hover:text-primary">
                   {String(index + 1).padStart(2, '0')}
                 </div>
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"

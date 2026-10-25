@@ -74,7 +74,7 @@ export function Navbar() {
         </div>
 
         {/* Center (desktop) */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-8 xl:gap-10">
           {navItems.map((item) => {
             const isActive = activeId === toId(item);
             return (
@@ -97,8 +97,8 @@ export function Navbar() {
         </div>
 
         {/* Right */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="tel:8005592648" className="font-sans font-medium text-[0.75rem] text-white/80 hover:text-white transition-colors tracking-wide">
+        <div className="hidden md:flex items-center gap-8 md:ml-auto md:mr-4 lg:m-0">
+          <a href="tel:8005592648" className="hidden xl:inline font-sans font-medium text-[0.75rem] text-white/80 hover:text-white transition-colors tracking-wide">
             (800) 559-2648
           </a>
           <button 
@@ -110,7 +110,7 @@ export function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white/90 w-10 h-10 -mr-2 flex items-center justify-center hover:bg-white/10 rounded-full transition-colors"
+          className="lg:hidden text-white/90 w-10 h-10 -mr-2 flex items-center justify-center hover:bg-white/10 rounded-full transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
@@ -127,7 +127,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-surface-dark md:hidden flex flex-col px-6 pt-24 pb-[max(1.5rem,env(safe-area-inset-bottom))] overflow-y-auto"
+            className="fixed inset-0 z-40 bg-surface-dark lg:hidden flex flex-col px-6 pt-24 pb-[max(1.5rem,env(safe-area-inset-bottom))] overflow-y-auto overscroll-contain"
           >
             <div className="pointer-events-none absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-primary/20 blur-[90px]" />
 

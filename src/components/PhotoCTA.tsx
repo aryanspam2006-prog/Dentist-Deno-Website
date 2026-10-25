@@ -4,7 +4,7 @@ import { openBooking } from '../lib/booking';
 export function PhotoCTA() {
   return (
     <section className="relative h-auto md:h-[300px] py-16 md:py-0 overflow-hidden flex items-center group cursor-default">
-      <img 
+      <img loading="lazy" decoding="async" 
         src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=2000" 
         alt="Happy dental patient" 
         className="absolute inset-0 w-full h-full object-cover object-center z-0 grayscale-[85%] transition-transform duration-1000 md:group-hover:scale-105"

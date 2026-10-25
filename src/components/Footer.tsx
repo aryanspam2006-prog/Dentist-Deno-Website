@@ -31,22 +31,22 @@ export function Footer() {
             <p className="font-sans font-light text-[0.7rem] text-white/40 tracking-[0.1em] mt-1 mb-5">
               Your Family's Dental Clinic
             </p>
-            <a href="tel:8005592648" className="font-sans font-semibold text-sm text-white block">
+            <a href="tel:8005592648" className="py-1.5 md:py-0 font-sans font-semibold text-sm text-white block">
               (800) 559-2648
             </a>
-            <a href="mailto:hello@dentoraclinic.com" className="font-sans font-light text-sm text-white/50 hover:text-white transition-colors block mt-1">
+            <a href="mailto:hello@dentoraclinic.com" className="font-sans font-light text-sm text-white/50 hover:text-white transition-colors block py-1.5 md:py-0 md:mt-1">
               hello@dentoraclinic.com
             </a>
           </div>
 
           {/* Col 2 */}
           <div>
-            <h4 className="font-sans font-semibold text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-5">
+            <h4 className="font-sans font-semibold text-[0.65rem] md:text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3 md:mb-5">
               SERVICES
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col md:gap-3">
               {['Dental Check-Up', 'Teeth Cleaning', 'Whitening', 'Implants', 'Veneers', 'Emergency Care'].map((link) => (
-                <a key={link} href="#" className="font-sans font-normal text-sm text-white/55 hover:text-white transition-colors">
+                <a key={link} href="#" className="py-2 md:py-0 font-sans font-normal text-sm text-white/55 hover:text-white transition-colors">
                   {link}
                 </a>
               ))}
@@ -55,12 +55,12 @@ export function Footer() {
 
           {/* Col 3 */}
           <div>
-            <h4 className="font-sans font-semibold text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-5">
+            <h4 className="font-sans font-semibold text-[0.65rem] md:text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3 md:mb-5">
               CLINIC
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col md:gap-3">
               {['About Us', 'Meet the Team', 'Patient Reviews', 'Blog', 'Careers'].map((link) => (
-                <a key={link} href="#" className="font-sans font-normal text-sm text-white/55 hover:text-white transition-colors">
+                <a key={link} href="#" className="py-2 md:py-0 font-sans font-normal text-sm text-white/55 hover:text-white transition-colors">
                   {link}
                 </a>
               ))}
@@ -69,7 +69,7 @@ export function Footer() {
 
           {/* Col 4 */}
           <div className="col-span-2 md:col-span-1">
-            <h4 className="font-sans font-semibold text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-5">
+            <h4 className="font-sans font-semibold text-[0.65rem] md:text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3 md:mb-5">
               OPENING HOURS
             </h4>
             <div className="flex flex-col gap-2 font-sans font-normal text-sm text-white/55">
@@ -85,7 +85,7 @@ export function Footer() {
                   key={social.name}
                   href="#"
                   aria-label={social.name}
-                  className="w-9 h-9 rounded-full border border-white/15 text-white/50 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary hover:text-white hover:-translate-y-0.5"
+                  className="w-10 h-10 md:w-9 md:h-9 rounded-full border border-white/15 text-white/50 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary hover:text-white hover:-translate-y-0.5"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                     <path d={social.path} />
@@ -98,12 +98,12 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex justify-between items-center flex-wrap gap-4">
-          <p className="font-sans font-light text-xs text-white/30">
+          <p className="font-sans font-light text-xs text-white/40">
             © 2026 Dentora Dental Clinic. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="font-sans font-light text-xs text-white/30 hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="font-sans font-light text-xs text-white/30 hover:text-white/60 transition-colors">Terms of Service</a>
+            <a href="#" className="py-2 md:py-0 font-sans font-light text-xs text-white/40 hover:text-white/60 transition-colors">Privacy Policy</a>
+            <a href="#" className="py-2 md:py-0 font-sans font-light text-xs text-white/40 hover:text-white/60 transition-colors">Terms of Service</a>
           </div>
         </div>
 

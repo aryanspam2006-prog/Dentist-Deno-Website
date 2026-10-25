@@ -42,7 +42,7 @@ export function Process() {
           transition={{ duration: 0.6 }}
           className="max-w-[560px] mx-auto text-center mb-10 md:mb-16"
         >
-          <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase">
+          <h3 className="font-sans font-semibold text-[0.68rem] md:text-[0.62rem] tracking-[0.2em] text-primary uppercase">
             HOW IT WORKS
           </h3>
           <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] text-white mt-3">
@@ -93,7 +93,7 @@ export function Process() {
                 {step.num}
               </div>
               <div className="h-[130px] rounded-xl overflow-hidden mb-5">
-                <img
+                <img loading="lazy" decoding="async"
                   src={step.image}
                   alt={step.title}
                   className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"

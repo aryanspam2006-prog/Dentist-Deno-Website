@@ -43,7 +43,7 @@ export function FAQ() {
         <div className="max-w-3xl mx-auto">
           
           <div className="text-center mb-8 md:mb-12">
-            <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase">
+            <h3 className="font-sans font-semibold text-[0.68rem] md:text-[0.62rem] tracking-[0.2em] text-primary uppercase">
               FAQ
             </h3>
             <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] mt-3 text-surface-dark">
@@ -57,9 +57,10 @@ export function FAQ() {
                 key={index}
                 open={openIndex === index}
                 onOpenChange={(isOpen) => setOpenIndex(isOpen ? index : null)}
-                className="border-b border-border py-5"
+                className="border-b border-border"
               >
-                <Collapsible.Trigger className="flex justify-between items-center w-full text-left gap-4 cursor-pointer outline-none group">
+                {/* Padding lives on the trigger so the whole row is tappable */}
+                <Collapsible.Trigger className="flex justify-between items-center w-full text-left gap-4 py-5 cursor-pointer outline-none group">
                   <span className="font-sans font-semibold text-[0.92rem] text-surface-dark transition-colors group-hover:text-primary group-data-[state=open]:text-primary">
                     {faq.q}
                   </span>
@@ -78,7 +79,7 @@ export function FAQ() {
                         transition={{ duration: 0.22, ease: "easeOut" }}
                         className="overflow-hidden"
                       >
-                        <p className="font-sans font-light text-[0.82rem] text-muted-foreground leading-relaxed mt-3 pb-2">
+                        <p className="font-sans font-light text-[0.82rem] text-muted-foreground leading-relaxed -mt-2 pb-5">
                           {faq.a}
                         </p>
                       </motion.div>

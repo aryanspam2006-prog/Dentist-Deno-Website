@@ -22,7 +22,7 @@ export function WhyChooseUs() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-4">
+          <h3 className="font-sans font-semibold text-[0.68rem] md:text-[0.62rem] tracking-[0.2em] text-primary uppercase mb-4">
             WHY CHOOSE US
           </h3>
           <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.2] tracking-[-0.02em] text-surface-dark mb-4">
@@ -55,7 +55,7 @@ export function WhyChooseUs() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="relative rounded-3xl overflow-hidden h-[300px] md:h-[400px] lg:h-[500px] group cursor-default"
         >
-          <img 
+          <img loading="lazy" decoding="async" 
             src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&q=80&w=1200" 
             alt="Dental team" 
             className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"

@@ -38,7 +38,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 md:mb-14"
         >
-          <h3 className="font-sans font-semibold text-[0.62rem] tracking-[0.2em] text-primary uppercase">
+          <h3 className="font-sans font-semibold text-[0.68rem] md:text-[0.62rem] tracking-[0.2em] text-primary uppercase">
             PATIENT REVIEWS
           </h3>
           <h2 className="text-balance font-sans font-extrabold text-[clamp(1.8rem,3vw,2.8rem)] tracking-[-0.025em] mt-3 text-surface-dark">
@@ -86,7 +86,7 @@ export function Testimonials() {
                   "{review.quote}"
                 </p>
                 <div className="flex items-center gap-3 mt-6">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={review.image}
                     alt={review.name}
                     className={cn("w-11 h-11 rounded-full object-cover", featured && "md:ring-2 md:ring-primary/60")}

@@ -45,6 +45,7 @@ export function Hero() {
       <img
         src="/pexels-olly-3945607.jpg"
         alt="Dental patient smiling"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover object-[center_20%] z-0 scale-105 animate-[ken-burns_20s_ease-out_forwards]"
         style={{ transformOrigin: 'top center' }}
       />
@@ -82,7 +83,7 @@ export function Hero() {
         </motion.div>
 
         {/* H1 — last word set in an italic serif for contrast */}
-        <h1 className="font-sans font-bold text-[clamp(2rem,10vw,4.6rem)] md:text-[clamp(2.5rem,min(5.5vw,9vh),4.8rem)] leading-[1.08] tracking-[-0.015em] text-white max-w-[8.6em] mb-4 md:mb-7 flex flex-wrap items-baseline gap-x-2 md:gap-x-3">
+        <h1 className="font-sans font-bold text-[clamp(2rem,min(10vw,9vh),4.6rem)] md:text-[clamp(2.5rem,min(7vw,9vh),4.8rem)] leading-[1.08] tracking-[-0.015em] text-white max-w-[8.6em] mb-4 md:mb-7 flex flex-wrap items-baseline gap-x-2 md:gap-x-3">
           {h1Words.map((word, i) => {
             const isAccent = i === h1Words.length - 1;
             return (
