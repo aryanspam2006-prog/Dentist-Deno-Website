@@ -30,8 +30,9 @@ const reviewerAvatars = [
 export function Hero() {
   const h1Words = ['Experience', 'Comfortable', 'Dental', 'Care.'];
 
+  // Phones: exactly one screen tall (svh = visible area while browser toolbars are showing)
   return (
-    <section className="min-h-[92svh] md:min-h-[95vh] relative overflow-hidden flex items-end pt-28 md:pt-32 pb-8 md:pb-20">
+    <section className="min-h-svh md:min-h-[95vh] relative overflow-hidden flex items-end pt-24 md:pt-32 pb-5 md:pb-20">
       {/* Background photo */}
       <img 
         src="/pexels-olly-3945607.jpg" 
@@ -60,7 +61,7 @@ export function Hero() {
         {/* Badge - Eyebrow label style */}
         <motion.div 
           custom={0} variants={fadeUp} initial="hidden" animate="visible"
-          className="inline-flex items-center gap-2 mb-5 md:mb-6"
+          className="inline-flex items-center gap-2 mb-4 md:mb-6"
         >
           <div className="w-1 h-1 rounded-full bg-primary shrink-0" />
           <span className="font-sans font-semibold text-[0.62rem] tracking-[0.22em] text-white/85 uppercase">
@@ -69,7 +70,7 @@ export function Hero() {
         </motion.div>
 
         {/* H1 */}
-        <h1 className="font-sans font-bold text-[clamp(2rem,11vw,4.6rem)] md:text-[clamp(2.5rem,5.5vw,4.6rem)] leading-[1.08] tracking-[-0.01em] text-white max-w-[650px] mb-6 md:mb-7 flex flex-wrap gap-x-2 md:gap-x-3">
+        <h1 className="font-sans font-bold text-[clamp(2rem,10vw,4.6rem)] md:text-[clamp(2.5rem,5.5vw,4.6rem)] leading-[1.08] tracking-[-0.01em] text-white max-w-[650px] mb-4 md:mb-7 flex flex-wrap gap-x-2 md:gap-x-3">
           {h1Words.map((word, i) => (
             <motion.span 
               key={i}
@@ -87,7 +88,7 @@ export function Hero() {
         {/* Subline */}
         <motion.p 
           custom={5} variants={fadeUp} initial="hidden" animate="visible"
-          className="font-sans font-normal text-[0.95rem] text-white/90 leading-[1.7] md:leading-[1.85] max-w-full md:max-w-[460px] mb-8 md:mb-11"
+          className="font-sans font-normal text-[0.9rem] md:text-[0.95rem] text-white/90 leading-[1.65] md:leading-[1.85] max-w-full md:max-w-[460px] mb-6 md:mb-11"
         >
           Your family's dental health, handled with care. Modern technology, gentle hands, and transparent pricing — always.
         </motion.p>
@@ -95,18 +96,19 @@ export function Hero() {
         {/* CTA row */}
         <motion.div 
           custom={6.5} variants={fadeUp} initial="hidden" animate="visible"
-          className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start sm:items-center mb-10 md:mb-16"
+          className="flex gap-3 sm:gap-4 md:gap-6 items-center mb-6 md:mb-16"
         >
-          <button 
+          <button
             onClick={openBooking}
-            className="w-full sm:w-auto inline-flex items-center justify-center shrink-0 whitespace-nowrap rounded-full font-semibold text-[0.85rem] transition-all duration-300 bg-primary text-white hover:bg-[#0aa6a6] px-9 py-3.5 md:py-3.5 shadow-[0_4px_14px_rgba(11,184,184,0.3)] hover:shadow-[0_6px_20px_rgba(11,184,184,0.4)] hover:-translate-y-[1px] active:scale-[0.98] group">
+            className="flex-1 sm:flex-none inline-flex items-center justify-center shrink-0 whitespace-nowrap rounded-full font-semibold text-[0.85rem] transition-all duration-300 bg-primary text-white hover:bg-[#0aa6a6] px-9 py-3.5 md:py-3.5 shadow-[0_4px_14px_rgba(11,184,184,0.3)] hover:shadow-[0_6px_20px_rgba(11,184,184,0.4)] hover:-translate-y-[1px] active:scale-[0.98] group">
             Book Appointment <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">&rarr;</span>
           </button>
-          <a href="tel:8005592648" className="inline-flex items-center justify-center gap-2.5 font-sans font-normal text-[0.85rem] text-white/65 hover:text-white transition-colors group">
-            <span className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center group-hover:bg-white/10 transition-colors shrink-0">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          {/* Phones: round call button beside "Book"; larger screens: icon + number */}
+          <a href="tel:8005592648" aria-label="Call (800) 559-2648" className="inline-flex items-center justify-center gap-2.5 font-sans font-normal text-[0.85rem] text-white/65 hover:text-white transition-colors group shrink-0">
+            <span className="w-12 h-12 sm:w-8 sm:h-8 rounded-full border border-white/25 sm:border-white/15 bg-white/5 sm:bg-transparent text-white sm:text-current flex items-center justify-center group-hover:bg-white/10 transition-colors shrink-0">
+              <svg className="w-[18px] h-[18px] sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             </span>
-            (800) 559-2648
+            <span className="max-sm:sr-only">(800) 559-2648</span>
           </a>
         </motion.div>
 
@@ -114,7 +116,7 @@ export function Hero() {
         <div className="border-t border-white/10 w-full lg:flex lg:items-center lg:justify-between lg:gap-8">
           <motion.div
             custom={8} variants={fadeUp} initial="hidden" animate="visible"
-            className="flex max-md:flex-nowrap flex-wrap max-md:overflow-x-auto hide-scrollbar gap-2.5 pt-5 md:pt-6 max-md:pb-2 max-md:-mx-6 max-md:px-6"
+            className="flex max-md:flex-nowrap flex-wrap max-md:overflow-x-auto hide-scrollbar gap-2.5 pt-4 md:pt-6 max-md:pb-1 max-md:-mx-6 max-md:px-6"
           >
             {['Dental Checkup', 'Teeth Cleaning', 'Tooth Whitening', 'Gum Treatment', 'Implants', 'Root Canal'].map((tag, i) => (
               <div key={i} className="shrink-0 group cursor-default bg-transparent border border-white/15 hover:border-white/30 rounded-full px-4 py-2 transition-all duration-300 flex items-center gap-2">
